@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Keyboard {
 
     private String[] layoutArray;
@@ -37,5 +39,14 @@ public class Keyboard {
 
     public void setPresenceRightNumbers(boolean presenceRightNumbers) {
         this.presenceRightNumbers = presenceRightNumbers;
+    }
+
+    @Override
+    public String toString() {
+        return "Keyboard{" +
+                "layoutArray=" + Arrays.toString(layoutArray) +
+                ", presenceOfBlacklight=" + presenceOfBlacklight +
+                ", presenceRightNumbers=" + presenceRightNumbers +
+                '}';
     }
 }

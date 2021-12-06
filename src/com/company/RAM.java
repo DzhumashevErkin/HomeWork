@@ -28,4 +28,12 @@ public class RAM {
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+    @Override
+    public String toString() {
+        return "RAM{" +
+                "capacity='" + capacity + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                '}';
+    }
 }

@@ -10,11 +10,12 @@ public class Computer {
     private String graphicsCard;
     private USBport usbPort;
     private Keyboard keyboard;
+    private User user;
 
     public Computer() {
     }
 
-    public Computer(Display display, String brand, String color, SSD ssd, RAM ram, String graphicsCard, USBport usbPort, Keyboard keyboard) {
+    public Computer(Display display, String brand, String color, SSD ssd, RAM ram, String graphicsCard, USBport usbPort, Keyboard keyboard,User user) {
         this.display = display;
         this.brand = brand;
         this.color = color;
@@ -23,6 +24,7 @@ public class Computer {
         this.graphicsCard = graphicsCard;
         this.usbPort = usbPort;
         this.keyboard = keyboard;
+        this.user = user;
     }
 
     public Display getDisplay() {
@@ -87,5 +89,28 @@ public class Computer {
 
     public void setKeyboard(Keyboard keyboard) {
         this.keyboard = keyboard;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "display=" + display +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", ssd=" + ssd +
+                ", ram=" + ram +
+                ", graphicsCard='" + graphicsCard + '\'' +
+                ", usbPort=" + usbPort +
+                ", keyboard=" + keyboard +
+                ", user=" + user +
+                '}';
     }
 }

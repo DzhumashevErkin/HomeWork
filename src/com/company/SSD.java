@@ -28,4 +28,12 @@ public class SSD {
     public void setAmountDisksDivided(int amountDisksDivided) {
         this.amountDisksDivided = amountDisksDivided;
     }
+
+    @Override
+    public String toString() {
+        return "SSD{" +
+                "memory='" + memory + '\'' +
+                ", amountDisksDivided=" + amountDisksDivided +
+                '}';
+    }
 }

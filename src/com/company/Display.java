@@ -38,4 +38,13 @@ public class Display {
     public void setMatrixType(String matrixType) {
         this.matrixType = matrixType;
     }
+
+    @Override
+    public String toString() {
+        return "Display{" +
+                "dioganal=" + dioganal +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", matrixType='" + matrixType + '\'' +
+                '}';
+    }
 }
