@@ -11,6 +11,8 @@ public class City extends Locality{
         this.districts = districts;
     }
 
+
+
     public District[] getDistricts() {
         return districts;
     }

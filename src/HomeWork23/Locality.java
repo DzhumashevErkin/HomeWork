@@ -5,6 +5,15 @@ public abstract class Locality {
     private int population;
     private Supervisor supervisor;
 
+    @Override
+    public String toString() {
+        return "Locality{" +
+                "name='" + name + '\'' +
+                ", population=" + population +
+                ", supervisor=" + supervisor +
+                '}';
+    }
+
     public Supervisor isYourSupervisor(Supervisor supervisor){
         if (this.supervisor.equals(supervisor)) return supervisor;
         else return null;
