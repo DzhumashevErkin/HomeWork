@@ -1,0 +1,29 @@
+Immutables
+When to use and why
+Bill Venners: How about immutables? When should I use immutables versus non-immutables?
+
+James Gosling: I would use an immutable whenever I can.
+
+Bill Venners: Whenever you can, why?
+
+James Gosling: From a strategic point of view, they tend to more often be trouble free. And there are usually things you can do with immutables that you can't do with mutable things, such as cache the result. If you pass a string to a file open method, or if you pass a string to a constructor for a label in a user interface, in some APIs (like in lots of the Windows APIs) you pass in an array of characters. The receiver of that object really has to copy it, because they don't know anything about the storage lifetime of it. And they don't know what's happening to the object, whether it is being changed under their feet.
+
+You end up getting almost forced to replicate the object because you don't know whether or not you get to own it. And one of the nice things about immutable objects is that the answer is, "Yeah, of course you do." Because the question of ownership, who has the right to change it, doesn't exist.
+
+One of the things that forced Strings to be immutable was security. You have a file open method. You pass a String to it. And then it's doing all kind of authentication checks before it gets around to doing the OS call. If you manage to do something that effectively mutated the String, after the security check and before the OS call, then boom, you're in. But Strings are immutable, so that kind of attack doesn't work. That precise example is what really demanded that Strings be immutable.
+
+Bill Venners: How about the wrapper types? I was asked a couple of weeks ago, "Why are wrapper types immutable?" I wasn't exactly sure what to say.
+
+James Gosling: Same answer.
+
+Bill Venners: Because you can, and it helps with caching?
+
+James Gosling: Yes.
+
+Bill Venners: Okay. The tradeoff seems to be that sometimes I may end up creating a lot more little objects.
+
+James Gosling: You may. One of the proposals that keeps surfacing -- I actually wrote up a proposal for this four or five years ago. It's something that happened after Java got released, and so it gets really hard. And this one has really resurfaced with a vengeance lately: this notion of strengthening the support for immutables.
+
+Another thing about immutable objects: if you have a class that's final and whose fields are final, except for one nasty problem, the optimizers can do really cool things with them, because they don't necessarily have to allocate them in the heap. They can have pure stack lifetime. You can copy them at will. You can replicate them at will, which is what happens with primitives.
+
+That's one of the reasons that primitives are not objects, because it is so nice to be able to just replicate them. When you pass an integer to a method, you don't have to pass the pointer to that integer. You can just replicate that integer and push it on the stack. So, it's a different integer. The same value, but a different integer and you can't actually tell. And if you look at a complex number class in C++ versus complex numbers in Fortran. In Fortran, they do all kinds of goofy things allocating complex numbers to registers, which really doesn't work in C++. And that mostly has to do with the fact that in C++, they are still objects and they have an identity. It's this whole platonic thing about identity. The nit that causes problems with optimizers and immutable objects is that as soon as you have a notion of identity that is independent of the value, then various things get really hard.
