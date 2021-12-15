@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Main {
+public class A {
     public static void main(String[] args) {
         List<String> myList = new ArrayList<>();
         List<String> myList2 = new ArrayList<>();
