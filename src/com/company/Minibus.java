@@ -1,11 +1,24 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 public class Minibus {
     private Integer numberOfSeats;
     private List<Passenger> passengers = new ArrayList<>();
+
+    public void sortMinibus(){
+        Passenger[] arrPassengers = new Passenger[passengers.size()];
+        arrPassengers = passengers.toArray(arrPassengers);
+        for (int i = 0; i < arrPassengers.length - 1; i++) {
+            for (int j = arrPassengers.length - 1; j > i; j--) {
+                if (arrPassengers[j - 1].getNumber() > arrPassengers[j].getNumber()) {
+                    Integer tmp = arrPassengers[j - 1].getNumber();
+                    arrPassengers[j - 1].setNumber(arrPassengers[j].getNumber());
+                    arrPassengers[j].setNumber(tmp);
+                }
+            }
+        }
+        passengers = Arrays.asList(arrPassengers);
+    }
 
     public void displayPassengers(){
         for (Passenger passenger:passengers) {
