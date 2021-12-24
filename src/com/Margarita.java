@@ -1,15 +1,11 @@
-package Exam2_JW2021.B;
+package com;
 
-public class Margarita extends Pizza{
+public class Margarita extends Pizza {
     private boolean withMeat;
 
     @Override
     public String toString() {
-        return "Margarita{" +
-                "price="+ getPrice()+
-                " weight="+ getWeight()+
-                " withMeat=" + withMeat +
-                '}';
+        return super.toString() + "Маргарита";
     }
 
     public Margarita() {

@@ -1,4 +1,4 @@
-package Exam2_JW2021.B;
+package com;
 
 public class Pizza {
     private double price;
@@ -11,8 +11,21 @@ public class Pizza {
         System.out.println("Готовится пицца №" + numberCookedPizza);
     }
 
+
+
     public void pizzaDelivery(){
+        System.out.println("Ваша пицца в пути");
+        System.out.print("Информация о вашей пицце(напоминаем) ");
         System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Пицца " +
+                "стоит " + price + "$, " +
+                "весит " + weight + " грамм, " +
+                "тип: "; // Т.к. пицца абстрактный класс(но мы его не проходили), то метод toString будут
+                            // реализовывать только его потомки. Поэтому тут могу написать "тип: ".
     }
 
     public Pizza() {
@@ -43,9 +56,6 @@ public class Pizza {
         return numberCookedPizza;
     }
 
-    public static void setNumberCookedPizza(int numberCookedPizza) {
-        Pizza.numberCookedPizza = numberCookedPizza;
-    }
 
 
 }

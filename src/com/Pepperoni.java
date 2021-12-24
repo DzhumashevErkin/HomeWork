@@ -1,6 +1,6 @@
-package Exam2_JW2021.B;
+package com;
 
-public class Pepperoni extends Pizza{
+public class Pepperoni extends Pizza {
     private boolean isSpicy;
 
 
@@ -9,11 +9,7 @@ public class Pepperoni extends Pizza{
 
     @Override
     public String toString() {
-        return "Pepperoni{" +
-                "price="+ getPrice()+
-                " weight="+ getWeight()+
-                " isSpicy=" + isSpicy +
-                '}';
+        return super.toString() + "Пепперони";
     }
 
     public Pepperoni() {
