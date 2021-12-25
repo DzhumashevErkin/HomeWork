@@ -23,7 +23,7 @@ public class Main {
             point = scanner.nextInt();
             switch (point) {
                 case 1:
-                    Book book = Book.CreateBook();
+                    Book.CreateBook();
                     break;
                 case 2:
                     if (BooksWithoutDepartment.getBooks().length == 0) {

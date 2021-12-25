@@ -8,7 +8,6 @@ public class Book {
     private String author;
     private String name;
     private int yearOfIssue;
-    private static BooksWithoutDepartment books;
 
 
     public static Book CreateBook() {
