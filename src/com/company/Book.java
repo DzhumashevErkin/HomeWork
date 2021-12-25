@@ -11,7 +11,7 @@ public class Book {
     private static BooksWithoutDepartment books;
 
 
-    public static Book CreateBook(){
+    public static Book CreateBook() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Давайте создадим книгу");
         System.out.println("Введите идентификатор книги (целое число)");
@@ -22,12 +22,12 @@ public class Book {
         String studentNumber = scanner.next();
         System.out.println("Введите год выпуска");
         int yearOfAdmission = scanner.nextInt();
-        Book book = new Book(id, name,  studentNumber,  yearOfAdmission);
+        Book book = new Book(id, name, studentNumber, yearOfAdmission);
         BooksWithoutDepartment.addNewBook(book);
         return book;
     }
 
-    public static int selectBook(){
+    public static int selectBook() {
         System.out.println("Выберите книгу:");
         BooksWithoutDepartment.showAllBooks();
         return new Scanner(System.in).nextInt();
@@ -46,7 +46,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book group = (Book) o;
-        return id == group.id && name == group.name && Objects.equals(author, group.author) && Objects.equals(yearOfIssue, group.yearOfIssue);
+        return id == group.id && Objects.equals(name, group.name) && Objects.equals(author, group.author) && Objects.equals(yearOfIssue, group.yearOfIssue);
     }
 
     @Override

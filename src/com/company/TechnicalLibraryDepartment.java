@@ -7,16 +7,15 @@ public class TechnicalLibraryDepartment extends LibraryDepartment {
 
     @Override
     public String toString() {
-        String hasComputer="";
-        if(!this.hasComputer)  hasComputer="не ";
+        String hasComputer = "";
+        if (!this.hasComputer) hasComputer = "не ";
         return "Технический отдел библиотеки " +
-                hasComputer + "имеет комьютер\n"+
+                hasComputer + "имеет комьютер\n" +
                 "Книги в данном отделе: " + Arrays.toString(this.getBooks());
     }
 
     public TechnicalLibraryDepartment() {
     }
-
 
 
     public TechnicalLibraryDepartment(boolean hasComputer) {
