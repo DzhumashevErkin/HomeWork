@@ -1,7 +1,7 @@
 package com;
 
 public class Margarita extends Pizza {
-    private boolean withMeat;
+    private boolean hasMeat;
 
     @Override
     public String toString() {
@@ -13,14 +13,14 @@ public class Margarita extends Pizza {
 
     public Margarita(double price, double weight, boolean withMeat) {
         super(price, weight);
-        this.withMeat = withMeat;
+        this.hasMeat = withMeat;
     }
 
-    public boolean isWithMeat() {
-        return withMeat;
+    public boolean isHasMeat() {
+        return hasMeat;
     }
 
-    public void setWithMeat(boolean withMeat) {
-        this.withMeat = withMeat;
+    public void setHasMeat(boolean hasMeat) {
+        this.hasMeat = hasMeat;
     }
 }
