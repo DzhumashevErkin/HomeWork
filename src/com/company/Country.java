@@ -7,6 +7,16 @@ public class Country {
     private int countryPopulation;
     private String officialLanguage;
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", countryCode=" + countryCode +
+                ", countryPopulation=" + countryPopulation +
+                ", officialLanguage='" + officialLanguage + '\'' +
+                '}';
+    }
 
     public Country() {
     }
