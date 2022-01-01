@@ -1,11 +1,14 @@
 package com.company;
 
+import com.company.cities.City;
+import com.company.cities.Country;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DateBase {
-    private static final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=JV2020_ClassWork42";
     private static final String user = "postgres";
     private static final String password = "123";
 

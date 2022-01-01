@@ -1,4 +1,4 @@
-package com.company;
+package com.company.cities;
 
 public class Country {
     private int id;
