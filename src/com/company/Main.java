@@ -33,6 +33,7 @@ public class Main {
 //        register(user);
 
         authorize(user.getLogin(),user.getPassword());
+//        UserDB.setUserIsBlockedByUserIdOrUsername(user,true);
     }
 
     public static void register(User user) {
@@ -46,14 +47,23 @@ public class Main {
         User user = UserDB.getUserByUsername(username);
         if(user == null){
             System.out.println("Username or password is incorrect");
+            return;
         }
-        else if(user.getPassword().equals(UserDB.encodePassword(password))){
+        if(user.getPassword().equals(password)){
             UserDB.addUserLog(user,"SUCCESS");
             System.out.println("Logged is successfully");
+            if(UserDB.getUserLogsCountByUserIdAndLoginResult(user,"FAIL")>0){
+                UserDB.deleteUserLogsByUserIdAndLoginResult(user,"FAIL");
+            }
         }
         else{
             UserDB.addUserLog(user,"FAIL");
             System.out.println("Username or password is incorrect");
+            if(UserDB.getUserLogsCountByUserIdAndLoginResult(user,"FAIL")>=3){
+                UserDB.setUserIsBlockedByUserIdOrUsername(user,true);
+                System.out.println("User " + user.getLogin() + " has been blocked");
+            }
+
         }
     }
 }
